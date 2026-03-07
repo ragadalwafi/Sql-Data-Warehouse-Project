@@ -4,10 +4,8 @@ Procedure: silver.load_silver
 Layer    : Silver Layer (Data Warehouse)
 
 Purpose:
-        This procedure loads and transforms data from the Bronze 
-        layer into the Silver layer. The process performs data 
-        cleaning, standardization, and basic data quality checks 
-        before inserting the data into structured Silver tables.
+      This procedure loads and transforms data from the Bronze layer into the Silver layer. The process performs data 
+      cleaning, standardization, and basic data quality checks before inserting the data into structured Silver tables.
 
 Main Tasks:
     - Truncate Silver tables before loading.
@@ -329,3 +327,4 @@ GO
 
 
 EXEC silver.load_silver;
+
