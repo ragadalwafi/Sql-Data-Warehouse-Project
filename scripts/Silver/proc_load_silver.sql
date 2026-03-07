@@ -1,3 +1,31 @@
+/*
+=========================================================
+Procedure: silver.load_silver
+Layer    : Silver Layer (Data Warehouse)
+
+Purpose:
+        This procedure loads and transforms data from the Bronze 
+        layer into the Silver layer. The process performs data 
+        cleaning, standardization, and basic data quality checks 
+        before inserting the data into structured Silver tables.
+
+Main Tasks:
+    - Truncate Silver tables before loading.
+    - Insert transformed and cleaned data from Bronze into Silver tables.
+
+Parameters:
+    None.
+    THis stoted procedure does not accept any parameters or return any values.
+
+Usage Example: 
+    EXEC Silver.load_sliver;
+
+=========================================================
+*/
+CREATE OR ALTER PROCEDURE silver.load_silver
+
+
+
 CREATE OR ALTER PROCEDURE silver.load_silver
 AS
 BEGIN
@@ -186,8 +214,6 @@ BEGIN
         PRINT 'Loading ERP Tables';
         PRINT '------------------------------------------------';
 
-    -- ERP CUSTOMER
-
         SET @start_time = GETDATE();
 
         PRINT '>> Truncating Table: silver.erp_cust_az12';
@@ -300,5 +326,6 @@ BEGIN
     END CATCH
 END
 GO
+
 
 EXEC silver.load_silver;
