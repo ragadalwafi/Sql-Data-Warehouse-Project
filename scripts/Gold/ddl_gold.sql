@@ -27,10 +27,12 @@ SELECT
 	ci.cst_lastname AS last_name,
 	loc.cntry AS country,
 	ci.cst_marital_status AS marital_status,
-	CASE
-		WHEN ci.cst_gndr != 'Unknown' THEN ci.cst_gndr
-		ELSE REPLACE(COALESCE(ca.gen, 'Unkown'), 'Unkown', 'Unknown')
-	END AS gender,
+	CAST(
+  CASE 
+   WHEN ci.cst_gndr != 'Unknown' THEN ci.cst_gndr
+   ELSE REPLACE(COALESCE(ca.gen, 'Unkown'), 'Unkown', 'Unknown')
+  END AS NVARCHAR(50)
+	) AS gender,
 	ca.bdate AS birthdate,
 	ci.cst_create_date AS create_date
 FROM silver.crm_cust_info ci
